@@ -12,7 +12,7 @@ from tornado.httpclient import HTTPClient
 
 testing_config = {
     "mongo_uri": "mongodb://localhost",
-    "mongo_host": "localhost",
+    "host": "localhost",
     "database": "conftrak_test" + str(uuid.uuid4()),
     "service_port": 7771,
     "tzone": "US/Eastern",
@@ -45,7 +45,7 @@ def conftrak_server():
 @pytest.fixture(scope="function")
 def conftrak_client():
     c = ConfigurationReference(
-        host=testing_config["mongo_host"], port=testing_config["service_port"]
+        host=testing_config["host"], port=testing_config["service_port"]
     )
     return c
 
